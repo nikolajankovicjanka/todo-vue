@@ -8,7 +8,7 @@
           type="text"
           id="title"
           class="form-input"
-          v-model="tittle"
+          v-model="title"
           placeholder="Enter todo title"
           required
         />
