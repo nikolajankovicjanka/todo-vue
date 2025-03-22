@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import TodoItem from "./TodoItem.vue";
-import { useTodoStore } from "../stores/todo";
+import { useTodoStore } from "@/stores/todo";
 
 const todoStore = useTodoStore();
 const filter = ref("all");

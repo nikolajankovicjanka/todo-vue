@@ -58,7 +58,7 @@ const addTask = () => {
         const newTask: Task = {
             id: Date.now().toString(),
             title,
-            completed: false,
+            completed: false, // Sada je ovo validno polje
             createdAt: new Date(),
         };
         kanbanStore.addTask(props.column.id, newTask);
@@ -73,16 +73,16 @@ const deleteColumn = () => {
     emit("delete-column", props.column.id);
 };
 
-const onDragStart = (event) => {
+const onDragStart = (event: DragEvent) => {
     console.log("Drag started:", event);
-    // Postavi podatke o zadatku koji se povlači
-    event.dataTransfer.setData("taskId", event.item.dataset.taskId);
-    event.dataTransfer.setData("fromColumnId", props.column.id);
+    if (event.dataTransfer) {
+        event.dataTransfer.setData("taskId", (event.target as HTMLElement).dataset.taskId || "");
+        event.dataTransfer.setData("fromColumnId", props.column.id);
+    }
 };
 
-const onDragEnd = (event) => {
+const onDragEnd = (event: DragEvent) => {
     console.log("Drag ended:", event);
-    // Ažuriraj stanje nakon premještanja zadatka
     kanbanStore.updateColumnTasks(props.column.id, tasks.value);
 };
 </script>
