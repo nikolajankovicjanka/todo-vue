@@ -13,6 +13,11 @@ const router = createRouter({
       name: "todos",
       component: () => import("../views/TodoView.vue"),
     },
+    {
+      path: "/kanban",
+      name: "kanban",
+      component: () => import("../views/KanbanView.vue"),
+    },
   ],
 });
 
