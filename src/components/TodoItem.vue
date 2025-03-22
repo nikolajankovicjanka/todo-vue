@@ -22,8 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import { useTodoStore } from "../stores/todo";
-import type { Todo } from "../types/todo";
+import { useTodoStore } from "@/stores/todo";
+import type { Todo } from "@/types/todo";
 
 const todoStore = useTodoStore();
 

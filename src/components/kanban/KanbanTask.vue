@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import type { Task } from "@/types/kanban";
 
-const props = defineProps<{
+defineProps<{
     task: Task;
 }>();
 
